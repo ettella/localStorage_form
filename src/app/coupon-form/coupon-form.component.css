@@ -1,0 +1,15 @@
+.orange {
+    color: rgb(8, 137, 49);
+    font-weight: 700;
+}
+
+form {
+    border: 2px dotted rgb(0, 255, 81);
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgb(213, 242, 218);
+}
+
+input {
+    border: none;
+}

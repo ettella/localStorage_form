@@ -1,0 +1,62 @@
+<form class="form-group" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h4 class="text-secondary my-3">Coupon form</h4>
+  <div class="row">
+    <div class="col-md-6 my-3 mb-4">
+      <label class="form-label" for="fullName">Full name:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="fullName"
+        id="fullName"
+        formControlName="fullName"
+        [class.is-invalid]="fullName.touched && fullName.invalid"
+      />
+
+      <p *ngIf="fullName.hasError('required')" class="invalid-feedback" id="fullName">This field is required!</p>
+      <p *ngIf="fullName.hasError('minlength')" class="invalid-feedback" id="fullName">This field must be contain minimum 3 characters!</p>
+    </div>
+
+    <div class="col-md-6 my-3 mb-4">
+      <label class="form-label" for="email">Email:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="email"
+        id="email"
+        formControlName="email"
+        [class.is-invalid]="email.touched && email.hasError('pattern')"
+      />
+      <p *ngIf="email.hasError('pattern')" class="invalid-feedback" id="email">Invalid email format!</p>
+    </div>
+
+    <div class="col-md-6 my-3 mb-4">
+      <label class="form-label" for="phoneNumber">Phone Number:</label>
+      <input
+        type="number"
+        class="form-control"
+        name="phoneNumber"
+        id="phoneNumber"
+        formControlName="phoneNumber"
+        [class.is-invalid]="phoneNumber.touched && phoneNumber.hasError('minlength')"
+      />
+      <p *ngIf="phoneNumber.hasError('minlength')" class="invalid-feedback" id="phoneNumber">This field must be contain 7 numbers!</p>
+    </div>
+
+    <div class="col-md-6 my-3 mb-4">
+        <label class="form-label orange" for="coupon">Coupon:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="coupon"
+          id="coupon"
+          formControlName="coupon"
+          [class.is-invalid]="coupon.touched && coupon.hasError('pattern')"
+        />
+        <p *ngIf="coupon.hasError('pattern')" class="invalid-feedback" id="coupon">Invalid coupon!</p>
+      </div>
+
+    <div class="col-md-3 my-3">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+</form>
